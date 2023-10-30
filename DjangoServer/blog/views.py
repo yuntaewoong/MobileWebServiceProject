@@ -5,11 +5,35 @@ from .models import Post
 from django.shortcuts import redirect
 from rest_framework import viewsets
 from .serializers import PostSerializer
-
+from django.http import HttpResponse, JsonResponse
 
 class IntruderImage(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+
+def get_SleepStart(request):
+    data = {
+            'Year' : '2023',
+            'Month' : 10,
+            'Date' : 9,
+            'Hour' : 13,
+            'Minute' : 50
+        }
+    return JsonResponse(data)
+
+def get_SleepEnd(request):
+    data = {
+            'Year' : '2023',
+            'Month' : 10,
+            'Date' : 10,
+            'Hour' : 1,
+            'Minute' : 30
+        }
+    return JsonResponse(data)
+
+
+
 
 
 
