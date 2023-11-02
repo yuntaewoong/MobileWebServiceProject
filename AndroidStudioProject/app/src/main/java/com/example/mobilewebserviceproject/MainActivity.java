@@ -66,7 +66,19 @@ public class MainActivity extends AppCompatActivity {
                                     break;
                                 }
                                 JSONObject jsonObject = new JSONObject(line);
-                                text1.setText(Integer.toString(jsonObject.getInt("Hour")));
+                                String receiveString = jsonObject.getString("data");
+                                String resultString =
+                                        "수면 시작 : "
+                                        + receiveString.substring(5,7)
+                                        + "월 "
+                                        + receiveString.substring(8,10)
+                                        + "일 "
+                                        + receiveString.substring(11,13)
+                                        + "시 "
+                                        + receiveString.substring(14,16)
+                                        + "분";
+
+                                text1.setText(resultString);
                             }
                             reader.close();
                         }
@@ -99,7 +111,19 @@ public class MainActivity extends AppCompatActivity {
                                     break;
                                 }
                                 JSONObject jsonObject = new JSONObject(line);
-                                text2.setText(Integer.toString(jsonObject.getInt("Hour")));
+                                String receiveString = jsonObject.getString("data");
+                                String resultString =
+                                        "수면 종료 : "
+                                                + receiveString.substring(5,7)
+                                                + "월 "
+                                                + receiveString.substring(8,10)
+                                                + "일 "
+                                                + receiveString.substring(11,13)
+                                                + "시 "
+                                                + receiveString.substring(14,16)
+                                                + "분";
+
+                                text2.setText(resultString);
                             }
                             reader.close();
                         }
