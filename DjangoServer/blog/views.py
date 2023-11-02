@@ -13,24 +13,12 @@ class IntruderImage(viewsets.ModelViewSet):
 
 
 def get_SleepStart(request):
-    data = {
-            'Year' : '2023',
-            'Month' : 10,
-            'Date' : 9,
-            'Hour' : 13,
-            'Minute' : 50
-        }
-    return JsonResponse(data)
+    queryset = Post.objects.all()
+    return JsonResponse({'data' : queryset[queryset.__len__()-2].published_date})
 
 def get_SleepEnd(request):
-    data = {
-            'Year' : '2023',
-            'Month' : 10,
-            'Date' : 10,
-            'Hour' : 1,
-            'Minute' : 30
-        }
-    return JsonResponse(data)
+    queryset = Post.objects.all()
+    return JsonResponse({'data' : queryset[queryset.__len__()-1].published_date})
 
 
 
